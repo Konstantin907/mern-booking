@@ -13,8 +13,11 @@ import cookieParser from 'cookie-parser'
 import http from 'http';
 import {Server} from 'socket.io';
 import reviewsRoute from './routes/review.js';
-dotenv.config();
 import multer from 'multer';
+//import path from 'path';
+import cors from 'cors';
+dotenv.config();
+
 
 const app = express();
 const server = http.createServer(app);
@@ -26,12 +29,26 @@ const io = new Server(server, {
     }
 });
 
+
+
+
+// Database Connection
+mongoose.connect(process.env.MONGO, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}).then(() => {
+    console.log('Connected to MongoDB');
+}).catch(err => {
+    throw err;
+});
+
 //middlewares:
+app.use(cors());
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(express.static("public"));
-//app.use('/images', express.static(path.join(__dirname, 'public', 'images')));
+//app.use('/images', express.static(path.join(__dirname, 'public')));
 
 
 app.use('/api/auth', authRoute)
@@ -65,7 +82,7 @@ app.post('/api/upload',(req,res)=>{
     upload(req, res, (err) => {
         //console.log(req.body);
         console.log(req.files);
-        const photoUrls = req.files.map((file)=>`/public/images/${file.filename}`);
+        const photoUrls = req.files.map((file)=>`/images/${file.filename}`);
         if (err) {
           return res.json({ success: false, err });
         }

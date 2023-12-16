@@ -1,11 +1,12 @@
 import axios from "axios";
 import React, { useState, useContext } from "react";
-import { AuthContext } from "./authContext";
+//import { AuthContext } from "./authContext";
 const INITIAL_STATE = {
   updateProperty: () => {},
   createProperty: () => {},
   deleteProperty: () => {},
   getUserProperties: () => {},
+  getReloadProperties: () => {},
   property: [],
 };
 
@@ -14,8 +15,8 @@ export const PropertyContext = React.createContext(INITIAL_STATE);
 
 //step 2 :  create Provider :
 export const PropertyContextProvider = ({ children }) => {
-  const { user } = useContext(AuthContext);
-  //console.log("sicne context properties", user);
+  //const { user } = useContext(AuthContext);
+  //console.log("sicne context properties", user.details._id);
   const [property, setProperty] = useState([]);
   const [propertiesByUser, setPropertiesByUser] = useState([]);
 
@@ -30,7 +31,7 @@ export const PropertyContextProvider = ({ children }) => {
         console.log("Server can not get property info from data base", error);
       });
     //get properties from User LOGGED  :
-    getUserProperties(user.details._id);
+    //getUserProperties(user.details._id);
   }, []);
   const deleteProperty = (_id) => {
     axios
@@ -87,6 +88,17 @@ export const PropertyContextProvider = ({ children }) => {
         console.log("Server can not get property info from data base", error);
       });
   };
+  const getReloadProperties = (_id) => {
+    axios
+      .get(`/api/hotels/newFind/${_id}`)
+      .then((response) => {
+        setPropertiesByUser(response.data);
+        //console.log(response.data);
+      })
+      .catch((error) => {
+        console.log("Server can not get property info from data base", error);
+      });
+  };
 
   const value = {
     property,
@@ -94,6 +106,7 @@ export const PropertyContextProvider = ({ children }) => {
     updateProperty,
     getUserProperties,
     propertiesByUser,
+    getReloadProperties,
   };
 
   return (

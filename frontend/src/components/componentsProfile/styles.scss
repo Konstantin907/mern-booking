@@ -1,150 +1,150 @@
 .getStartedContainer  {
-    width: 100%;
-    padding: 20px;
-    margin-bottom:3%;
-    .welcomeText { 
-        margin-bottom: 5%;
-        p { 
-            text-transform: capitalize;
-            
-        }
-        h2 { 
-            text-transform: capitalize;
+  width: 100%;
+  padding: 20px;
+  margin-bottom:3%;
+  .welcomeText { 
+      margin-bottom: 5%;
+      p { 
+          text-transform: capitalize;
+          
+      }
+      h2 { 
+          text-transform: capitalize;
 
-        }
-    }
-    .getStartedCard { 
-        width: 20%;
-        background-color: #f1f1f1;
-        border-radius: 10px;
-        padding: 10px;
-        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-        display: flex;
-        flex-direction: column;
+      }
+  }
+  .getStartedCard { 
+      width: 20%;
+      background-color: #f1f1f1;
+      border-radius: 10px;
+      padding: 10px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: column;
 
-        .textCardGetStarted { 
-            margin: 0;
-            font-weight: 500;
+      .textCardGetStarted { 
+          margin: 0;
+          font-weight: 500;
 
-        }
-        .redText { 
-            color: red;
-            margin-bottom: 15%;
+      }
+      .redText { 
+          color: red;
+          margin-bottom: 15%;
 
-        }
-        button {
-            
-        }
+      }
+      button {
+          
+      }
 
-    }
+  }
 };
 //BenefitsBecome a host COMPONENT
 .host-benefits {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 20px;
+  background-color: #8a2be2;
+  color: white;
+  margin-top: 3%;
+
+  h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .card {
+    background-color: white;
+    border-radius: 8px;
     padding: 20px;
-    background-color: #8a2be2;
-    color: white;
-    margin-top: 3%;
+    //margin: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #8a2be2;
+    }
+
+    p {
+      font-size: 16px;
+      color: #333;
+    }
+  }
+}
+//New property Styles : 
+
+.formNewProperty { 
+  transform: translateY(-20px);
+  transform: translateX(-100%);
+  opacity: 0;
+  transition-property: all;
+  transition-duration: 500ms;
+  transition-timing-function: ease-in;
+  background-color: #f1f1f1;
+  border-radius: 10px;
+  padding: 3%;
+  height: 0px;
+ 
   
-    h2 {
-      font-size: 24px;
-      margin-bottom: 20px;
+  input  {
+      padding: 10px;
+      border-radius: 10px;
+      margin-bottom: 2%;
+      border: none;
+  }
+  legend { 
+    font-weight: 700;
+    font: 1.6em;
+    text-transform: uppercase;
+    margin-bottom: 10%;
+    color:black;
+  }
+ 
+ 
+}
+.formNewProperty.active  {
+  opacity: 1;
+  height: auto;
+  transform: translateY(0px);
+  transform: translateX(80%);
+}
+
+///CARDS if Apply  
+.cardsPropertiesContainer {
+  width: 22%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: #f1f1f1;
+  border: none;
+  border-radius: 10px;
+  padding: 2%;
+  gap: 2%;
+  margin-bottom:2% ;
+  h3 { 
+    text-transform: capitalize;
+
+  }
+  .imagesLayout{
+    width: 100%;
+    img {
       width: 100%;
-      text-align: center;
-    }
-  
-    .card {
-      background-color: white;
-      border-radius: 8px;
-      padding: 20px;
-      //margin: 20px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  
-      h3 {
-        font-size: 20px;
-        margin-bottom: 10px;
-        color: #8a2be2;
-      }
-  
-      p {
-        font-size: 16px;
-        color: #333;
-      }
-    }
-  }
-  //New property Styles : 
-
-  .formNewProperty { 
-    transform: translateY(-20px);
-    transform: translateX(-100%);
-    opacity: 0;
-    transition-property: all;
-    transition-duration: 500ms;
-    transition-timing-function: ease-in;
-    background-color: #f1f1f1;
-    border-radius: 10px;
-    padding: 3%;
-    height: 0px;
-   
-    
-    input  {
-        padding: 10px;
-        border-radius: 10px;
-        margin-bottom: 2%;
-        border: none;
-    }
-    legend { 
-      font-weight: 700;
-      font: 1.6em;
-      text-transform: uppercase;
-      margin-bottom: 10%;
-      color:black;
-    }
-   
-   
-  }
-  .formNewProperty.active  {
-    opacity: 1;
-    height: auto;
-    transform: translateY(0px);
-    transform: translateX(80%);
-  }
-
-  ///CARDS if Apply  
-  .cardsPropertiesContainer {
-    width: 22%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    background-color: #f1f1f1;
-    border: none;
-    border-radius: 10px;
-    padding: 2%;
-    gap: 2%;
-    margin-bottom:2% ;
-    h3 { 
-      text-transform: capitalize;
 
     }
-    .imagesLayout{
-      width: 100%;
-      img {
-        width: 100%;
-
-      }
-      .imagesLayoutSmall{
-
-      }
-
-    }
-    .desc{
-
-    }
-    .price { 
+    .imagesLayoutSmall{
 
     }
 
   }
+  .desc{
+
+  }
+  .price { 
+
+  }
+
+}
